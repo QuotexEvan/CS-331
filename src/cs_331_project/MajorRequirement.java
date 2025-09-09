@@ -11,19 +11,27 @@ package cs_331_project;
 public class MajorRequirement extends Course{
     
     protected String major;
-    public MajorRequirement(String title, String courseNumber, String description, String department, String jaxMixCategory, String major){
-        super(title, courseNumber, description, department, true );
+    protected String requiredGrade; // e.g. "A", "B", etc.
+    protected boolean isCapstone;
+
+    public MajorRequirement(String title, String courseNumber, String description,
+                            String department, int credits, int level,
+                            String major, String requiredGrade, boolean isCapstone) {
+        super(title, courseNumber, description, department, true, credits, level);
         this.major = major;
+        this.requiredGrade = requiredGrade;
+        this.isCapstone = isCapstone;
     }
-    
-    public String getMajor(){
-        return this.major;
-    }
-    
-     @Override
+
+    public String getMajor() { return major; }
+    public String getRequiredGrade() { return requiredGrade; }
+    public boolean isCapstone() { return isCapstone; }
+
+    @Override
     public String toString() {
-        // Use the parent's toString() method and append new information
-        return super.toString() + "\n" +
-               "Major " + this.major;
+        return super.toString() +
+               "\nMajor: " + major +
+               "\nRequired Grade: " + requiredGrade +
+               "\nCapstone: " + isCapstone;
     }
 }

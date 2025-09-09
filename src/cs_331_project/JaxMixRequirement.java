@@ -10,17 +10,17 @@ package cs_331_project;
  */
 public class JaxMixRequirement extends Course {
     
-    protected String jaxMixCategory;
-    
-    public JaxMixRequirement(String title, String courseNumber, String description, String department, String jaxMixCategory){
-        super(title, courseNumber, description, department, true );
+    public enum Category { COMMUNICATION, EXPERIENCE, EXPRESSION, INQUIRY }
+    protected Category jaxMixCategory;
+
+    public JaxMixRequirement(String title, String courseNumber, String description,
+                             String department, int credits, int level, Category jaxMixCategory) {
+        super(title, courseNumber, description, department, true, credits, level);
         this.jaxMixCategory = jaxMixCategory;
     }
-    
-     @Override
+
+    @Override
     public String toString() {
-        // Use the parent's toString() method and append new information
-        return super.toString() + "\n" +
-               "JaxMix Category: " + jaxMixCategory;
+        return super.toString() + "\nJaxMix Category: " + jaxMixCategory;
     }
 }
