@@ -14,65 +14,65 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        // Main method to test different types of courses
         
-         // Create a base course
+        // Create a base course
         Course introCS = new Course(
-                "Intro to Computer Science",
-                "CS101",
-                "Introduction to programming concepts",
+                "Introduction to Information Technology",
+                "CS201",
+                "A brief exposure to theory and operations of information technology. Concepts presented include computer systems, hardware and software. Hands-on experience with selected productivity software packages. (Department credit not given for CS/CIS majors and/or minors.)",
                 "Computer Science",
                 true,
                 3,
-                100
+                200
         );
-        introCS.setInstructor("Dr. Smith");
-        introCS.addSemesterOffered("Fall");
+        introCS.setInstructor("Jensen Cynthia");  // Setting instructor
+        introCS.addSemesterOffered("Fall");  // Adding semester availability
         introCS.addSemesterOffered("Spring");
 
         // Create a JaxMixRequirement course
         JaxMixRequirement ethics = new JaxMixRequirement(
-                "Ethics in Technology",
-                "PHIL220",
-                "Study of ethics in modern technology",
-                "Philosophy",
+                "English Composition I",
+                "EH101",
+                "Introduction to critical reading, thinking, and writing through student interaction with textual and digital materials.",
+                "English",
                 3,
-                200,
-                JaxMixRequirement.Category.EXPERIENCE
+                100,
+                JaxMixRequirement.Category.COMMUNICATION
         );
-        ethics.setInstructor("Dr. Johnson");
-        ethics.addSemesterOffered("Fall");
+        ethics.setInstructor("Dr. Johnson");  // Setting instructor
+        ethics.addSemesterOffered("Fall");    // Adding semester availability
 
         // Create a MajorRequirement course
         MajorRequirement dataStructures = new MajorRequirement(
                 "Data Structures",
-                "CS201",
-                "In-depth study of data structures and algorithms",
+                "CS331",
+                "Design, analysis, and implementation of fundamental data structures: trees, heaps, and graphs. Basic algorithmic analysis and strategies. Basic computability and introduction to distributed algorithms.",
                 "Computer Science",
-                4,
-                200,
+                3,
+                300,
                 "Computer Science",
                 "C",
                 false
         );
-        dataStructures.setInstructor("Prof. Allen");
-        dataStructures.addSemesterOffered("Spring");
-        dataStructures.addPrerequisite(introCS); // CS201 requires CS101
+        dataStructures.setInstructor("Trifas Monica");   // Setting instructor
+        dataStructures.addSemesterOffered("Fall");   // Adding semester availability
+        dataStructures.addPrerequisite(introCS);       // Setting prerequisite (CS331 requires CS101)
 
         // Create an Elective course
-        Elective musicTech = new Elective(
-                "Music Technology",
-                "MUS150",
-                "Exploration of digital tools in music creation",
-                "Music",
+        Elective elective = new Elective(
+                "Rock Climbing and Rappelling",
+                "HPE164",
+                "Students will participate in on-campus skill sessions and two weekends of natural rock climbing and cliff rappelling",
+                "Kinesiology",
                 2,
                 100,
                 true
         );
-        musicTech.setInstructor("Dr. Williams");
-        musicTech.addSemesterOffered("Summer");
-        musicTech.addRelatedMajor("Music");
-        musicTech.addRelatedMajor("Computer Science");
+        elective.setInstructor("Killen Paul");        // Setting instructor
+        elective.addSemesterOffered("Fall");         // Adding semester availability
+        elective.addRelatedMajor("Kinesiology");             // Adding related major
+        elective.addRelatedMajor("Computer Science");
 
         // Print all course information
         System.out.println("==== Base Course ====");
@@ -85,11 +85,10 @@ public class Main {
         System.out.println(dataStructures);
 
         System.out.println("\n==== Elective ====");
-        System.out.println(musicTech);
+        System.out.println(elective);
 
         // Test prerequisite
         System.out.println("\nDoes Data Structures have CS101 as prerequisite? "
                 + dataStructures.hasPrerequisite(introCS));
     }
-    
 }

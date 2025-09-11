@@ -67,6 +67,7 @@ public class Course {
     }
 
     @Override
+    // Overriding toString() method
     public String toString() {
         return "Course Number: " + courseNumber + "\n" +
                "Title: " + title + "\n" +
